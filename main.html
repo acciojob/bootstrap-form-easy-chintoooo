@@ -1,116 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Intern Hiring Form</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <style>
-    body {
-      padding: 20px;
-    }
-    .form-container {
-      max-width: 600px;
-      margin: auto;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intern Hiring Form</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
+    <div class="container mt-5">
+        <h2>Intern Hiring Form</h2>
+        <form id="intern-form" novalidate>
+            <!-- First Name -->
+            <div class="form-group">
+                <label for="first-name-input">First Name</label>
+                <input type="text" class="form-control" id="first-name-input" required>
+                <div class="invalid-feedback">
+                    Please enter your first name.
+                </div>
+            </div>
 
-  <div class="form-container">
-    <form class="needs-validation" novalidate>
-      <!-- First Name -->
-      <div class="form-group">
-        <label for="first-name-input">First Name</label>
-        <input type="text" class="form-control" id="first-name-input" placeholder="Enter first name" required>
-        <div class="invalid-feedback">
-          Please provide a valid first name.
-        </div>
-      </div>
+            <!-- Last Name -->
+            <div class="form-group">
+                <label for="last-name-input">Last Name</label>
+                <input type="text" class="form-control" id="last-name-input" required>
+                <div class="invalid-feedback">
+                    Please enter your last name.
+                </div>
+            </div>
 
-      <!-- Last Name -->
-      <div class="form-group">
-        <label for="last-name-input">Last Name</label>
-        <input type="text" class="form-control" id="last-name-input" placeholder="Enter last name" required>
-        <div class="invalid-feedback">
-          Please provide a valid last name.
-        </div>
-      </div>
+            <!-- Email -->
+            <div class="form-group">
+                <label for="email-input">Email</label>
+                <input type="email" class="form-control" id="email-input" required>
+                <div class="invalid-feedback">
+                    Please enter a valid email address.
+                </div>
+            </div>
 
-      <!-- Email -->
-      <div class="form-group">
-        <label for="email-input">Email</label>
-        <input type="email" class="form-control" id="email-input" placeholder="Enter email" required>
-        <div class="invalid-feedback">
-          Please provide a valid email address.
-        </div>
-      </div>
+            <!-- College Name -->
+            <div class="form-group">
+                <label for="college-input">College Name</label>
+                <input type="text" class="form-control" id="college-input" required>
+                <div class="invalid-feedback">
+                    Please enter your college name.
+                </div>
+            </div>
 
-      <!-- College Name -->
-      <div class="form-group">
-        <label for="college-input">College Name</label>
-        <input type="text" class="form-control" id="college-input" placeholder="Enter college name" required>
-        <div class="invalid-feedback">
-          Please provide a valid college name.
-        </div>
-      </div>
+            <!-- Roll Number -->
+            <div class="form-group">
+                <label for="roll-no-input">Roll Number</label>
+                <input type="text" class="form-control" id="roll-no-input" required>
+                <div class="invalid-feedback">
+                    Please enter your roll number.
+                </div>
+            </div>
 
-      <!-- Roll Number -->
-      <div class="form-group">
-        <label for="roll-no-input">Roll Number</label>
-        <input type="text" class="form-control" id="roll-no-input" placeholder="Enter roll number" required>
-        <div class="invalid-feedback">
-          Please provide a valid roll number.
-        </div>
-      </div>
+            <!-- Graduation Year -->
+            <div class="form-group">
+                <label for="graduation-year">Graduation Year</label>
+                <select class="form-control" id="graduation-year" required>
+                    <option value="">Select graduation year</option>
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                    <option value="2022">2022</option>
+                    <option value="2023">2023</option>
+                </select>
+                <div class="invalid-feedback">
+                    Please select your graduation year.
+                </div>
+            </div>
 
-      <!-- Graduation Year -->
-      <div class="form-group">
-        <label for="graduation-year">Graduation Year</label>
-        <select class="form-control" id="graduation-year" required>
-          <option value="">Select graduation year</option>
-          <option value="2020">2020</option>
-          <option value="2021">2021</option>
-          <option value="2022">2022</option>
-          <option value="2023">2023</option>
-        </select>
-        <div class="invalid-feedback">
-          Please select a graduation year.
-        </div>
-      </div>
+            <!-- Condition Checkbox -->
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="conditions-checkbox" required>
+                <label class="form-check-label" for="conditions-checkbox">I agree to the terms and conditions</label>
+                <div class="invalid-feedback">
+                    You must agree before submitting.
+                </div>
+            </div>
 
-      <!-- Terms and Conditions -->
-      <div class="form-group form-check">
-        <input type="checkbox" class="form-check-input" id="conditions-checkbox" required>
-        <label class="form-check-label" for="conditions-checkbox">I agree to the terms and conditions</label>
-        <div class="invalid-feedback">
-          You must agree to the terms and conditions.
-        </div>
-      </div>
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
 
-      <!-- Submit Button -->
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-  </div>
-
-  <script>
-    // Bootstrap form validation
-    (function() {
-      'use strict';
-      window.addEventListener('load', function() {
-        var forms = document.getElementsByClassName('needs-validation');
-        var validation = Array.prototype.filter.call(forms, function(form) {
-          form.addEventListener('submit', function(event) {
-            if (form.checkValidity() === false) {
-              event.preventDefault();
-              event.stopPropagation();
-            }
-            form.classList.add('was-validated');
-          }, false);
-        });
-      }, false);
-    })();
-  </script>
-
+    <script>
+        // JavaScript to enable validation feedback
+        (function() {
+            'use strict';
+            window.addEventListener('load', function() {
+                var forms = document.getElementsByClassName('needs-validation');
+                var validation = Array.prototype.filter.call(forms, function(form) {
+                    form.addEventListener('submit', function(event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+    </script>
 </body>
 </html>
