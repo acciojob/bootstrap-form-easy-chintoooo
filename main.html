@@ -3,104 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Intern Hiring Form</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Internship Application Form</title>
+    <style>
+        .invalid-feedback {
+            color: red;
+            display: none;
+        }
+        input:invalid + .invalid-feedback,
+        select:invalid + .invalid-feedback {
+            display: block;
+        }
+    </style>
 </head>
 <body>
-    <div class="container mt-5">
-        <h2>Intern Hiring Form</h2>
-        <form id="intern-form" novalidate>
-            <!-- First Name -->
-            <div class="form-group">
-                <label for="first-name-input">First Name</label>
-                <input type="text" class="form-control" id="first-name-input" required>
-                <div class="invalid-feedback">
-                    Please enter your first name.
-                </div>
-            </div>
+    <form id="internship-form" novalidate>
+        <!-- First Name -->
+        <label for="first-name-input">First Name:</label>
+        <input type="text" id="first-name-input" name="first-name" required>
+        <div class="invalid-feedback">Please enter a valid first name.</div>
+        <br>
 
-            <!-- Last Name -->
-            <div class="form-group">
-                <label for="last-name-input">Last Name</label>
-                <input type="text" class="form-control" id="last-name-input" required>
-                <div class="invalid-feedback">
-                    Please enter your last name.
-                </div>
-            </div>
+        <!-- Last Name -->
+        <label for="last-name-input">Last Name:</label>
+        <input type="text" id="last-name-input" name="last-name" required>
+        <div class="invalid-feedback">Please enter a valid last name.</div>
+        <br>
 
-            <!-- Email -->
-            <div class="form-group">
-                <label for="email-input">Email</label>
-                <input type="email" class="form-control" id="email-input" required>
-                <div class="invalid-feedback">
-                    Please enter a valid email address.
-                </div>
-            </div>
+        <!-- Email -->
+        <label for="email-input">Email:</label>
+        <input type="email" id="email-input" name="email" required>
+        <div class="invalid-feedback">Please enter a valid email address.</div>
+        <br>
 
-            <!-- College Name -->
-            <div class="form-group">
-                <label for="college-input">College Name</label>
-                <input type="text" class="form-control" id="college-input" required>
-                <div class="invalid-feedback">
-                    Please enter your college name.
-                </div>
-            </div>
+        <!-- College Name -->
+        <label for="college-input">College Name:</label>
+        <input type="text" id="college-input" name="college" required>
+        <div class="invalid-feedback">Please enter your college name.</div>
+        <br>
 
-            <!-- Roll Number -->
-            <div class="form-group">
-                <label for="roll-no-input">Roll Number</label>
-                <input type="text" class="form-control" id="roll-no-input" required>
-                <div class="invalid-feedback">
-                    Please enter your roll number.
-                </div>
-            </div>
+        <!-- Roll Number -->
+        <label for="roll-no-input">Roll No:</label>
+        <input type="text" id="roll-no-input" name="roll-no" required>
+        <div class="invalid-feedback">Please enter a valid roll number.</div>
+        <br>
 
-            <!-- Graduation Year -->
-            <div class="form-group">
-                <label for="graduation-year">Graduation Year</label>
-                <select class="form-control" id="graduation-year" required>
-                    <option value="">Select graduation year</option>
-                    <option value="2020">2020</option>
-                    <option value="2021">2021</option>
-                    <option value="2022">2022</option>
-                    <option value="2023">2023</option>
-                </select>
-                <div class="invalid-feedback">
-                    Please select your graduation year.
-                </div>
-            </div>
+        <!-- Graduation Year -->
+        <label for="graduation-year">Graduation Year:</label>
+        <select id="graduation-year" name="graduation-year" required>
+            <option value="" disabled selected>Select year</option>
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
+        </select>
+        <div class="invalid-feedback">Please select a graduation year.</div>
+        <br>
 
-            <!-- Condition Checkbox -->
-            <div class="form-group form-check">
-                <input type="checkbox" class="form-check-input" id="conditions-checkbox" required>
-                <label class="form-check-label" for="conditions-checkbox">I agree to the terms and conditions</label>
-                <div class="invalid-feedback">
-                    You must agree before submitting.
-                </div>
-            </div>
+        <!-- Conditions Checkbox -->
+        <label for="conditions-checkbox">
+            <input type="checkbox" id="conditions-checkbox" name="conditions" required>
+            I agree to the terms and conditions
+        </label>
+        <div class="invalid-feedback">You must agree before submitting.</div>
+        <br>
 
-            <!-- Submit Button -->
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-    </div>
+        <!-- Submit Button -->
+        <button type="submit">Submit</button>
+    </form>
 
     <script>
-        // JavaScript to enable validation feedback
-        (function() {
-            'use strict';
-            window.addEventListener('load', function() {
-                var forms = document.getElementsByClassName('needs-validation');
-                var validation = Array.prototype.filter.call(forms, function(form) {
-                    form.addEventListener('submit', function(event) {
-                        if (form.checkValidity() === false) {
-                            event.preventDefault();
-                            event.stopPropagation();
-                        }
-                        form.classList.add('was-validated');
-                    }, false);
-                });
-            }, false);
-        })();
+        document.getElementById('internship-form').addEventListener('submit', function(event) {
+            if (!this.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+        });
     </script>
 </body>
 </html>
